@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_model_veterinaria_paciente,access.veterinaria.paciente,model_veterinaria_paciente,,1,1,1,1
+access_veterinaria_personal,access.veterinaria.personal,model_veterinaria_personal,,1,1,1,1
+access_veterinaria_practica,access.veterinaria.practica,model_veterinaria_practica,,1,1,1,1
+access_practica_items,access.practica.items,model_practica_items,,1,1,1,1
+access_veterinaria_item,access.veterinaria.item,model_veterinaria_item,,1,1,1,1
+access_veterinaria_turno,access.veterinaria.turno,model_veterinaria_turno,,1,1,1,1
+access_item_categoria,access.item.categoria,model_item_categoria,,1,1,1,1
+access_item_rubro,access.item.rubro,model_item_rubro,,1,1,1,1
+access_item_grupo,access.item.grupo,model_item_grupo,,1,1,1,1
+access_item_fabricante,access.item.fabricante,model_item_fabricante,,1,1,1,1
+access_paciente_raza,access.paciente.raza,model_paciente_raza,,1,1,1,1
+access_paciente_especie,access.paciente.especie,model_paciente_especie,,1,1,1,1

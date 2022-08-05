@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_veterinaria_turno" model="ir.actions.act_window">
+        <field name="name">Turnos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">veterinaria.turno</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="veterinaria_turno_tree" model="ir.ui.view">
+        <field name="name">veterinaria.turno</field>
+        <field name="model">veterinaria.turno</field>
+        <field name="arch" type="xml">
+
+            <tree multi_edit="1">
+                <field name="inicio"/>
+                <field name="fin"/>
+                <field name="paciente"/>
+                <field name="personal"/>
+                <field name="responsable"/>
+                <field name="practica"/>
+                <field name="observaciones"/>
+                <field name="tomado"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_veterinaria_turno_form" model="ir.ui.view">
+        <field name="name">veterinaria.turno.form</field>
+        <field name="model">veterinaria.turno</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="inicio"/>
+                            <field name="fin"/>
+                            <field name="name"/>
+                            <field name="paciente"/>
+                            <field name="personal"/>
+                            <field name="practica" domain="[('categoria.turno', '=', 'True')]"/>
+                        </group>
+                        <group>
+                            <field name="responsable"/>
+                            <field name="observaciones"/>
+                            <field name="tomado"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+   <record id="book_calendar_view" model="ir.ui.view">
+        <field name="name">veterinaria.turno.calendar</field>
+        <field name="model">veterinaria.turno</field>
+        <field name="arch" type="xml">
+            <calendar string="Turnos" color="practica" date_start="inicio" date_stop="fin" quick_add="False" mode="month" event_open_popup="1">
+                <field name="paciente"/>
+                <field name="fin"/>
+                <field name="personal"/>
+                <field name="practica"/>
+                <field name="responsable"/>
+                <field name="observaciones"/>
+                <field name="tomado"/>
+<!--                <field name="author"/>-->
+<!--                <field name="partner_ids" write_model="calendar.contacts" write_field="partner_id"-->
+<!--                       avatar_field="image_small"/>-->
+
+            </calendar>
+        </field>
+    </record>
+
+    <menuitem id="menu_turno_root"
+              name="Turnos"
+              parent="menu_practica_root"
+              sequence="20"
+              action="action_veterinaria_turno"/>
+
+</odoo>

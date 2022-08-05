@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_item_categoria" model="ir.actions.act_window">
+        <field name="name">categorias</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">item.categoria</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="item_categoria_tree" model="ir.ui.view">
+        <field name="name">item.categoria</field>
+        <field name="model">item.categoria</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="grupo"/>
+                <field name="rubro"/>
+                <field name="descripcion"/>
+                <field name="turno"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="item_categoria_form" model="ir.ui.view">
+        <field name="name">item.categoria.form</field>
+        <field name="model">item.categoria</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <sheet>
+                    <h1>Categoria</h1>
+                    <h4>Clasificación: Grupo->Rubro->Categoría</h4>
+                    <group>
+                        <group>
+                            <field name="grupo"/>
+                            <field name="rubro" domain="[('grupo', '=', grupo)]"/>
+                            <field name="name"/>
+                            <field name="descripcion"/>
+                            <field name="turno"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_categoria_root"
+              name="Categorías"
+              parent="menu_item_root"
+              action="action_item_categoria"
+              sequence="40"/>
+
+</odoo>

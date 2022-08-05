@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_veterinaria_item" model="ir.actions.act_window">
+        <field name="name">Item</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">veterinaria.item</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+<!--        <field name="context">{'search_default_responsable': 1}</field>-->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Registra el primer item!
+            </p>
+        </field>
+    </record>
+
+    <record id="view_item_tree" model="ir.ui.view">
+        <field name="name">veterinaria.item.tree</field>
+        <field name="model">veterinaria.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="codigo"/>
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="precio_costo"/>
+                <field name="porcentaje_precio"/>
+                <field name="iva"/>
+                <field name="precio_venta"/>
+                <field name="presentacion"/>
+                <field name="duracion"/>
+                <field name="stock"/>
+                <field name="stock_minimo"/>
+                <field name="activo"/>
+                <field name="proveedor"/>
+                <field name="categoria"/>
+                <field name="fabricante"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_item_form" model="ir.ui.view">
+        <field name="name">veterinaria.item.form</field>
+        <field name="model">veterinaria.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+
+                <sheet>
+                    <h1>Ítems</h1>
+                    <group>
+                        <group>
+                            <field name="codigo"/>
+                            <field name="name"/>
+                            <field name="descripcion"/>
+                            <field name="precio_costo"/>
+                            <field name="porcentaje_precio"/>
+                            <field name="iva"/>
+                            <field name="precio_venta"/>
+                            <field name="presentacion"/>
+                            <field name="duracion"/>
+                        </group>
+                        <group>
+                            <field name="stock"/>
+                            <field name="stock_minimo"/>
+                            <field name="activo"/>
+                            <field name="proveedor"/>
+                            <field name="grupo"/>
+                            <field name="rubro" domain="[('grupo', '=', grupo)]"/>
+                            <field name="categoria" domain="[('rubro', '=', rubro)]"/>
+                            <field name="fabricante"/>
+                            <field name="imagen" widget="image" class="oe_avatar"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+        <menuitem id="menu_item"
+              name="Items"
+              parent="menu_item_root"
+              action="action_veterinaria_item"
+              sequence="10"/>
+
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_item_fabricante" model="ir.actions.act_window">
+        <field name="name">Fabricantes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">item.fabricante</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="item_fabricante_tree" model="ir.ui.view">
+        <field name="name">item.fabricante</field>
+        <field name="model">item.fabricante</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="descripcion"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="item_fabricante_form" model="ir.ui.view">
+        <field name="name">item.fabricante.form</field>
+        <field name="model">item.fabricante</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <sheet>
+                    <h1>Fabricante</h1>
+                    <!-- <h4> otro título</h4> -->
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="descripcion"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_fabricante_root"
+              name="Fabricantes"
+              parent="menu_item_root"
+              action="action_item_fabricante"
+              sequence="10"/>
+</odoo>

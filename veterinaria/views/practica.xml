@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    <record id="action_registrar_practica" model="ir.actions.server">
+        <field name="name">Registrar práctica</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_veterinaria_practica"/>
+        <field name="binding_model_id" ref="model_veterinaria_practica"/>
+        <field name="state">code</field>
+        <field name="code">records.action_confirm()</field>
+    </record>-->
+
+    <record id="action_veterinaria_practica" model="ir.actions.act_window">
+        <field name="name">Practicas</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">veterinaria.practica</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Registra tu primera práctica!
+            </p>
+        </field>
+    </record>
+
+    <record id="view_appointment_tree" model="ir.ui.view">
+        <field name="name">veterinaria.practica.tree</field>
+        <field name="model">veterinaria.practica</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1">
+                <field name="fecha"/>
+                <field name="paciente"/>
+                <field name="responsable"/>
+                <field name="personal"/>
+                <field name="notas"/>
+                <field name="proxima_practica"/>
+                <field name="practica_items"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_practica_form" model="ir.ui.view">
+        <field name="name">veterinaria.practica.form</field>
+        <field name="model">veterinaria.practica</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="imagen" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h2>
+                            <p>Número HC: <field name="nro_practica" readonly="1"/></p>
+                            <p>Paciente: <field name="paciente"/></p>
+                        </h2>
+
+                    </div>
+                    <group>
+                        <group>
+                            <field name="responsable"/>
+                            <field name="especie"/>
+                            <field name="raza"/>
+                            <field name="sexo" readonly="1" force_save="1"/>
+                            <field name="peso"/>
+                            <field name="color"/>
+                        </group>
+                        <group>
+
+                            <field name="personal"/>
+                            <field name="fecha"/>
+                            <field name="turno" domain="[('paciente', '=', paciente), ('tomado', '=', False)]"/>
+                            <field name="proxima_practica"/>
+                        </group>
+                    </group>
+                    <group>
+                            <field name="practicas_paciente" readonly="1">
+                            </field>
+                    </group>
+                </sheet>
+                <sheet>
+                    <notebook>
+                        <page string="Items" name="items">
+                            <field name="practica_items">
+                                <tree editable="bottom">
+                                    <field name="item"/>
+                                    <field name="precio_venta"/>
+                                    <field name="cantidad"/>
+                                    <field name="descuento"/>
+                                    <field name="subtotal"/>
+                                    <field name="stock"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="item"/>
+                                        </group>
+                                        <group>
+
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Notas" name="notas">
+                            <field name="notas"/>
+                        </page>
+                    </notebook>
+                    <group>
+                        <group>
+                        </group>
+                        <group>
+                            <field name="total"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+<!--    <record id="view_practica_search" model="ir.ui.view">
+        <field name="name">veterinaria.practica.search</field>
+        <field name="model">veterinaria.practica</field>
+        <field name="arch" type="xml">
+            <search string="Paciente">
+&lt;!&ndash;                <field name="name"/>&ndash;&gt;
+                <field name="paciente"/>
+                <separator/>
+&lt;!&ndash;                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>&ndash;&gt;
+                <group expand="1" string="Group By">
+                    <filter string="Paciente" name="paciente" context="{'group_by':'paciente'}"/>
+                </group>
+            </search>
+        </field>
+    </record>-->
+
+        <menuitem id="menu_practica"
+              name="Prácticas"
+              parent="menu_practica_root"
+              sequence="10"
+              action="action_veterinaria_practica"/>
+
+<!--        <menuitem id="menu_buscar_practica"
+              name="Buscar prácticas"
+              parent="menu_practica"
+              sequence="10"
+              action="view_practica_search"/>-->
+
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_item_grupo" model="ir.actions.act_window">
+        <field name="name">Grupos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">item.grupo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="item_grupo_tree" model="ir.ui.view">
+        <field name="name">item.grupo</field>
+        <field name="model">item.grupo</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="descripcion"/>
+            </tree>
+        </field>
+    </record>
+    <record id="item_grupo_form" model="ir.ui.view">
+        <field name="name">item.grupo.form</field>
+        <field name="model">item.grupo</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>Grupo</h1>
+                    <h4>Clasificación: Grupo->Rubro->Categoría</h4>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="descripcion"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_grupo_root"
+              name="Grupos"
+              parent="menu_item_root"
+              action="action_item_grupo"
+              sequence="20"/>
+</odoo>

@@ -1,0 +1,14 @@
+id,name,grupo
+1,Prácticas,Veterinaria
+2,Medicamentos,Veterinaria
+5,Accesorios,PetShop
+6,Ropa,PetShop
+7,Confort,PetShop
+8,Caninos,Alimentos
+9,Felinos,Alimentos
+10,Aves,Alimentos
+11,Peces,Alimentos
+12,Otros,Alimentos
+13,Peluquería,Servicios
+14,Guardería,Servicios
+15,Cosmética,Servicios

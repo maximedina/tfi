@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="reporte_historia_clinica">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <table class="table table-condensed" style="border: 3px solid black !important;">
+                                    <tr>
+                                        <td width="40%">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <p style="text-align:center;padding-top:10px;">
+                                                            <img t-if="not o.imagen"
+                                                                 t-att-src="'/web/static/src/img/placeholder.png'" height="140"
+                                                                 border="1" width="120"/>
+                                                            <img t-if="o.imagen"
+                                                                 t-att-src="'data:image/png;base64,%s' % to_text(o.imagen)"
+                                                                 height="140" border="1" width="120"/>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="text-center">
+                                                        <strong><span t-field="o.numero"/></strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3" class="text-center">
+                                                        <strong><span t-field="o.name"/></strong>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="60%">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Especie:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.especie"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Raza:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.raza"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Color:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.color"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Peso (kg):</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.peso"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Sexo:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.sexo"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Fecha nac.:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.fecha_nacimiento"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Muerto:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.muerto"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="60%">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Responsable:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.responsable"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>DNI:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.responsable.vat"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Domicilio:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.responsable.street"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Ciudad:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.responsable.city"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Provincia:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.responsable.state_id"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Teléfono:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.responsable.phone"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <strong>Email:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.responsable.email"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br/>
+
+                        <t t-if="o.practicas">
+                            <span>Prácticas</span>
+                            <table class="table table-sm o_main_table" name="practica">
+                                <thead>
+                                    <tr>
+                                        <th name="th_reference" class="text-left">
+                                            <span>Fecha</span>
+                                        </th>
+                                        <th name="th_age" class="text-left">
+                                            <span>Personal</span>
+                                        </th>
+                                        <th name="th_doctor" class="text-left">
+                                            <span>Nota</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <t t-set="cantidad_practicas" t-value="0"/>
+                                <t t-foreach="o.practicas" t-as="line">
+                                    <t t-set="cantidad_practicas" t-value="cantidad_practicas + 1"/>
+                                    <tr>
+                                        <td>
+                                            <span t-field="line.fecha"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.personal"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.notas"/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                                <tr>
+                                    <td colspan="2">
+                                        <strong>Cantidad prácticas</strong>
+                                    </td>
+                                    <td>
+                                        <t t-esc="cantidad_practicas"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </t>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

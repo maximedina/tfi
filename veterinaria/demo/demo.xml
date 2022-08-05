@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Pacientes -->
+          <record id="1" model="veterinaria.paciente">
+                <field name="name">Juana</field>
+<!--                <field name="numero">MV00001</field>-->
+                <field name="responsable">59</field>
+                <field name="microchip">111111</field>
+                <field name="especie">1</field>
+                <field name="raza">1</field>
+                <field name="color">Blanco</field>
+                <field name="peso">12</field>
+                <field name="sexo">hembra</field>
+                <field name="fecha_nacimiento">2020-05-12</field>
+                <field name="imagen" type="base64" file="/home/osboxes/PycharmProjects/odoo/src/addons/veterinaria/static/src/img/Juana.PNG"/>
+          </record>
+        <!-- Items -->
+          <record id="1" model="veterinaria.item">
+                <field name="codigo">1</field>
+                <field name="name">Cefalexina</field>
+                <field name="descripcion">Antibiotico de amplio espectro</field>
+                <field name="precio_costo">360</field>
+                <field name="porcentaje_precio">30</field>
+                <field name="iva">21</field>
+                <field name="presentacion">20 p</field>
+                <field name="stock">10</field>
+                <field name="stock_minimo">2</field>
+                <field name="proveedor">47</field>
+                <field name="grupo">1</field>
+                <field name="rubro">2</field>
+                <field name="categoria">25</field>
+                <field name="fabricante">1</field>
+                <field name="imagen" type="base64" file="/home/osboxes/PycharmProjects/odoo/src/addons/veterinaria/static/src/img/CEFALEXINA.jpg"/>
+          </record>
+          <record id="2" model="veterinaria.item">
+                <field name="codigo">2</field>
+                <field name="name">Consulta en consultorio</field>
+                <field name="descripcion"></field>
+                <field name="precio_costo">800</field>
+                <field name="porcentaje_precio">30</field>
+                <field name="iva">21</field>
+                <field name="proveedor">58</field>
+                <field name="grupo">1</field>
+                <field name="rubro">1</field>
+                <field name="categoria">3</field>
+          </record>
+          <record id="3" model="veterinaria.item">
+                <field name="codigo">3</field>
+                <field name="name">Corte</field>
+                <field name="descripcion">Corte de pelo</field>
+                <field name="precio_costo">800</field>
+                <field name="porcentaje_precio">30</field>
+                <field name="iva">21</field>
+                <field name="proveedor">58</field>
+                <field name="grupo">4</field>
+                <field name="rubro">13</field>
+                <field name="categoria">20</field>
+          </record>
+<!--Personal        -->
+          <record id="1" model="veterinaria.personal">
+                <field name="dni">12345678</field>
+                <field name="name">Federico Medina</field>
+                <field name="matricula">12345</field>
+                <field name="genero">masculino</field>
+                <field name="fecha_nacimiento">1982-06-14</field>
+                <field name="foto" type="base64" file="/home/osboxes/PycharmProjects/odoo/src/addons/veterinaria/static/src/img/Fede.jpg"/>
+          </record>
+          <record id="2" model="veterinaria.personal">
+                <field name="dni">87654321</field>
+                <field name="name">Norma Aguerri</field>
+                <field name="genero">femenino</field>
+                <field name="fecha_nacimiento">1957-05-31</field>
+                <field name="foto" type="base64" file="/home/osboxes/PycharmProjects/odoo/src/addons/veterinaria/static/src/img/Moma.jpg"/>
+          </record>
+    </data>
+</odoo>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_registrar_practica" model="ir.actions.server">
+        <field name="name">Registrar practica</field>
+        <field name="model_id" ref="veterinaria.model_veterinaria_practica"/>
+        <field name="binding_model_id" ref="veterinaria.model_veterinaria_practica"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">
+            if record:
+                action_values = env.ref('veterinaria.action_registrar_practica').sudo().read()[0]
+                action_values.update({'context': env.context})
+                action = action_values
+        </field>
+    </record>
+
+    <record id="action_veterinaria_paciente" model="ir.actions.act_window">
+        <field name="name">Paciente</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">veterinaria.paciente</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{}</field>
+<!--        <field name="context">{'search_default_responsable': 1}</field>-->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Registra el primer paciente!
+            </p>
+        </field>
+    </record>
+
+    <record id="view_paciente_tree" model="ir.ui.view">
+        <field name="name">veterinaria.paciente.tree</field>
+        <field name="model">veterinaria.paciente</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="numero"/>
+                <field name="name"/>
+                <field name="microchip"/>
+                <field name="especie"/>
+                <field name="raza"/>
+                <field name="sexo"/>
+                <field name="color"/>
+                <field name="peso"/>
+                <field name="fecha_nacimiento"/>
+                <field name="activo"/>
+                <field name="muerto"/>
+                <field name="responsable"/>
+                <field name="practicas"/>
+                <field name="comentarios"/>
+            </tree>
+        </field>
+    </record>
+
+        <record id="view_paciente_kanban" model="ir.ui.view">
+        <field name="name">veterinaria.paciente.kanban</field>
+        <field name="model">veterinaria.paciente</field>
+        <field name="arch" type="xml">
+            <kanban sample="1">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_image_fill_left">
+                                <field name="imagen" widget="image" class="oe_avatar"/>
+                            </div>
+
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        Número: <field name="numero"/>
+                                    </li>
+                                    <li>
+                                        Nombre: <field name="name"/>
+                                    </li>
+                                    <li>
+                                        Especie: <field name="especie"/>
+                                    </li>
+                                    <li>
+                                        Raza: <field name="raza"/>
+                                    </li>
+                                    <li>
+                                        Sexo: <field name="sexo"/>
+                                    </li>
+                                    <li>
+                                        Peso: <field name="peso"/>
+                                    </li>
+                                    <li>
+                                        Fec. nac.: <field name="fecha_nacimiento"/>
+                                    </li>
+                                    <li>
+                                        Responsable: <field name="responsable"/>
+                                    </li>
+                                    <li>
+                                        Activo: <field name="activo"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_paciente_form" model="ir.ui.view">
+        <field name="name">veterinaria.paciente.form</field>
+        <field name="model">veterinaria.paciente</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+
+                </header>
+
+                <sheet>
+                    <field name="imagen" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="numero" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="responsable"/>
+                            <field name="microchip"/>
+                            <field name="especie"/>
+                            <field name="raza" domain="[('especie', '=', especie)]"/>
+                            <field name="color"/>
+                            <field name="peso"/>
+                            <field name="sexo"/>
+                            <field name="activo"/>
+                            <field name="muerto"/>
+                        </group>
+                        <group>
+                            <field name="fecha_nacimiento"/>
+                            <field name="fecha_muerte"/>
+                            <field name="comentarios"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Prácticas" name="practica">
+                            <field name="practicas" readonly="1">
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+        <menuitem id="menu_veterinaria_root"
+              name="MedVet"
+              sequence="10"/>
+
+        <menuitem id="menu_practica_root"
+              name="Prácticas"
+              parent="menu_veterinaria_root"
+              sequence="10"/>
+
+        <menuitem id="menu_paciente_root"
+              name="Pacientes"
+              parent="menu_veterinaria_root"
+              sequence="20"/>
+
+        <menuitem id="menu_item_root"
+              name="Items"
+              parent="menu_veterinaria_root"
+              sequence="30"/>
+
+        <menuitem id="menu_paciente"
+              name="Pacientes"
+              parent="menu_paciente_root"
+              action="action_veterinaria_paciente"
+              sequence="10"/>
+
+        <menuitem id="menu_usuario_root"
+              name="Usuarios"
+              parent="menu_veterinaria_root"
+              sequence="40"/>
+
+</odoo>

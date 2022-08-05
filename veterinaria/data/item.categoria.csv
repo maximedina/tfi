@@ -1,0 +1,55 @@
+id,name,rubro,grupo,turno
+1,Vacunaciones,Prácticas,Veterinaria,True
+2,Desparasitaciones,Prácticas,Veterinaria,True
+3,Consultas,Prácticas,Veterinaria,True
+4,Cirugías,Prácticas,Veterinaria,True
+5,Collares,Accesorios,PetShop,False
+6,Bozales,Accesorios,PetShop,False
+7,Juguetes,Accesorios,PetShop,False
+8,Abrigos,Ropa,PetShop,False
+9,Capas,Ropa,PetShop,False
+10,Cuchas,Confort,PetShop,False
+11,Jaulas,Confort,PetShop,False
+12,Almohadones,Confort,PetShop,False
+13,Cachorros,Caninos,Alimentos,False
+14,Adultos,Caninos,Alimentos,False
+15,Cachorros,Felinos,Alimentos,False
+16,Adultos,Felinos,Alimentos,False
+17,Aves,Aves,Alimentos,False
+18,Peces,Peces,Alimentos,False
+19,Otros,Otros,Alimentos,False
+20,Cortes,Peluquería,Servicios,True
+21,Baños,Peluquería,Servicios,True
+22,Guarda,Guardería,Servicios,True
+23,Shampoo y jabones,Cosmética,PetShop,False
+24,Anestesicos - analepticos,Medicamentos,Veterinaria,False
+25,Antibioticos,Medicamentos,Veterinaria,False
+26,Anticolinergicos,Medicamentos,Veterinaria,False
+27,Anticonceptivos,Medicamentos,Veterinaria,False
+28,Anticonvulsivo-barbiturico,Medicamentos,Veterinaria,False
+29,Antiinflamatorios - analgesico,Medicamentos,Veterinaria,False
+30,Vacunas,Medicamentos,Veterinaria,False
+31,Antiparasitarios,Medicamentos,Veterinaria,False
+32,Antiprolactínico no-hormonal,Medicamentos,Veterinaria,False
+33,Antisepticos - desinfectantes,Medicamentos,Veterinaria,False
+34,Biologicos,Medicamentos,Veterinaria,False
+35,Cardiotonicos,Medicamentos,Veterinaria,False
+36,Cicatrizantes,Medicamentos,Veterinaria,False
+37,Coagulantes y anticoagulantes,Medicamentos,Veterinaria,False
+38,Condroprotectores,Medicamentos,Veterinaria,False
+39,Coprofagias,Medicamentos,Veterinaria,False
+40,Diabetes,Medicamentos,Veterinaria,False
+41,Diureticos,Medicamentos,Veterinaria,False
+42,Gastroenterologicos,Medicamentos,Veterinaria,False
+43,Heomostaticos,Medicamentos,Veterinaria,False
+44,Hepatoprotectores,Medicamentos,Veterinaria,False
+45,Hidratantes,Medicamentos,Veterinaria,False
+46,Hormonales,Medicamentos,Veterinaria,False
+47,Laxantes,Medicamentos,Veterinaria,False
+48,Oftalmicos,Medicamentos,Veterinaria,False
+49,Oftalmologicos,Medicamentos,Veterinaria,False
+50,Oticos,Medicamentos,Veterinaria,False
+51,Periodentales,Medicamentos,Veterinaria,False
+52,Antimicoticos,Medicamentos,Veterinaria,False
+53,Vitaminicos,Medicamentos,Veterinaria,False
+54,Shampoo y jabones,Medicamentos,Veterinaria,False
