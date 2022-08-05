@@ -12,6 +12,7 @@
     'depends': [
         # 'sale',
         'mail',
+        'contacts'
         # 'website_slides',
         # 'hr',
     ],
@@ -36,7 +37,7 @@
         'views/rubro.xml',
         'views/categoria.xml',
         'views/fabricante.xml',
-        'views/cliente.xml',
+        # 'views/cliente.xml',
         'reports/report.xml',
         'reports/historia_clinica_template.xml',
         'reports/turno_agenda_semanal_template.xml',
