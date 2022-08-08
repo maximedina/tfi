@@ -11,3 +11,4 @@ access_item_grupo,access.item.grupo,model_item_grupo,,1,1,1,1
 access_item_fabricante,access.item.fabricante,model_item_fabricante,,1,1,1,1
 access_paciente_raza,access.paciente.raza,model_paciente_raza,,1,1,1,1
 access_paciente_especie,access.paciente.especie,model_paciente_especie,,1,1,1,1
+access_veterinaria_cliente,access.veterinaria.cliente,model_res_partner,,1,1,1,1

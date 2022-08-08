@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+
 
 class Paciente(models.Model):
     _name = "veterinaria.paciente"
@@ -63,14 +63,3 @@ class Paciente(models.Model):
              name = '[' + rec.numero + '] ' + rec.name
              result.append((rec.id, name))
          return result
-
-    # def abrir_practicas(self):
-    #     return {
-    #         'type': 'ir.actions.act_window',
-    #         'name': 'Practicas',
-    #         'res_model': 'veterinaria.practica',
-    #         'domain': [('paciente', '=', self.id)],
-    #         'context': {'default_paciente': self.id},
-    #         'view_mode': 'tree,form',
-    #         'target': 'current',
-    #     }

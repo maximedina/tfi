@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-
 from odoo import fields, models
 
 
-class Contact_Inherit(models.Model):
-    _inherit = ['contacts','mail.thread', 'mail.activity.mixin']
 
-    pacientes = fields.One2many('veterinaria.paciente', 'paciente', string="Paciente")
+class Cliente(models.Model):
+    _description = "Clientes"
+    _order = "name"
+    _inherit = ['res.partner']
+
+    pacientes = fields.One2many('veterinaria.paciente', 'responsable', string="Pacientes")

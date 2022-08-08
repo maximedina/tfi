@@ -11,7 +11,7 @@
         <field name="binding_type">report</field>
     </record>
 
-    <record id="reporte_agenda_semanal" model="ir.actions.report">
+<!--    <record id="reporte_agenda_semanal" model="ir.actions.report">
         <field name="name">Agenda semanal</field>
         <field name="model">veterinaria.turno</field>
         <field name="report_type">qweb-pdf</field>
@@ -19,7 +19,7 @@
         <field name="report_file">veterinaria.reporte_agenda_semanal</field>
         <field name="binding_model_id" ref="model_veterinaria_turno"/>
         <field name="binding_type">report</field>
-    </record>
+    </record>-->
 
 
 <!--    <record id="report_patient_card" model="ir.actions.report">

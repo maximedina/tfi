@@ -40,7 +40,7 @@
                             <field name="name"/>
                             <field name="paciente"/>
                             <field name="personal"/>
-                            <field name="practica" domain="[('categoria.turno', '=', 'True')]"/>
+                            <field name="practica" domain="[('categoria.requiere_turno', '=', 'True')]"/>
                         </group>
                         <group>
                             <field name="responsable"/>
@@ -65,10 +65,6 @@
                 <field name="responsable"/>
                 <field name="observaciones"/>
                 <field name="tomado"/>
-<!--                <field name="author"/>-->
-<!--                <field name="partner_ids" write_model="calendar.contacts" write_field="partner_id"-->
-<!--                       avatar_field="image_small"/>-->
-
             </calendar>
         </field>
     </record>

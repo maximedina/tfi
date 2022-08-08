@@ -9,4 +9,5 @@ from . import categoria
 from . import item
 from . import personal
 from . import fabricante
-# from . import practica_items
+from . import cliente
+

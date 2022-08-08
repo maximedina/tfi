@@ -1,4 +1,4 @@
-id,name,rubro,grupo,turno
+id,name,rubro,grupo,requiere_turno
 1,Vacunaciones,Prácticas,Veterinaria,True
 2,Desparasitaciones,Prácticas,Veterinaria,True
 3,Consultas,Prácticas,Veterinaria,True

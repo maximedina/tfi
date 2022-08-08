@@ -9,7 +9,7 @@ class Categoria(models.Model):
 
     name = fields.Char(string='Categoría', required=True)
     descripcion = fields.Char(string='Descripción')
-    turno = fields.Boolean(String='Turno')
+    requiere_turno = fields.Boolean(string='Requiere turno')
     rubro = fields.Many2one('item.rubro', string="Rubro", required=True)
     grupo = fields.Many2one('item.grupo', string="Grupo", required=True)
 

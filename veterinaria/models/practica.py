@@ -25,6 +25,7 @@ class Practica(models.Model):
     personal = fields.Many2one('veterinaria.personal', string="Personal", required=True)
     fecha = fields.Datetime(string="Fecha", required=True, default=fields.Datetime.now)
     turno = fields.Many2one('veterinaria.turno', string="Turno")
+    tomado = fields.Boolean(string="Tomado", related='turno.tomado', readonly=False)
     proxima_practica = fields.Date(string="Próxima visita", default=fields.Datetime.today)
     notas = fields.Text(string='Notas')
     practica_items = fields.One2many('practica.items', 'practica_id', string="Items")

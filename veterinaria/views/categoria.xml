@@ -18,7 +18,7 @@
                 <field name="grupo"/>
                 <field name="rubro"/>
                 <field name="descripcion"/>
-                <field name="turno"/>
+                <field name="requiere_turno"/>
             </tree>
         </field>
     </record>
@@ -38,7 +38,7 @@
                             <field name="rubro" domain="[('grupo', '=', grupo)]"/>
                             <field name="name"/>
                             <field name="descripcion"/>
-                            <field name="turno"/>
+                            <field name="requiere_turno"/>
                         </group>
                     </group>
                 </sheet>

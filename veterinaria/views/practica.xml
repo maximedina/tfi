@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-<!--    <record id="action_registrar_practica" model="ir.actions.server">
-        <field name="name">Registrar práctica</field>
-        <field name="type">ir.actions.server</field>
-        <field name="model_id" ref="model_veterinaria_practica"/>
-        <field name="binding_model_id" ref="model_veterinaria_practica"/>
-        <field name="state">code</field>
-        <field name="code">records.action_confirm()</field>
-    </record>-->
-
     <record id="action_veterinaria_practica" model="ir.actions.act_window">
         <field name="name">Practicas</field>
         <field name="type">ir.actions.act_window</field>
@@ -32,7 +22,7 @@
                 <field name="paciente"/>
                 <field name="responsable"/>
                 <field name="personal"/>
-                <field name="notas"/>
+                <field name="notas" optional="hide"/>
                 <field name="proxima_practica"/>
                 <field name="practica_items"/>
             </tree>
@@ -120,32 +110,10 @@
         </field>
     </record>
 
-<!--    <record id="view_practica_search" model="ir.ui.view">
-        <field name="name">veterinaria.practica.search</field>
-        <field name="model">veterinaria.practica</field>
-        <field name="arch" type="xml">
-            <search string="Paciente">
-&lt;!&ndash;                <field name="name"/>&ndash;&gt;
-                <field name="paciente"/>
-                <separator/>
-&lt;!&ndash;                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>&ndash;&gt;
-                <group expand="1" string="Group By">
-                    <filter string="Paciente" name="paciente" context="{'group_by':'paciente'}"/>
-                </group>
-            </search>
-        </field>
-    </record>-->
-
-        <menuitem id="menu_practica"
+    <menuitem id="menu_practica"
               name="Prácticas"
               parent="menu_practica_root"
               sequence="10"
               action="action_veterinaria_practica"/>
-
-<!--        <menuitem id="menu_buscar_practica"
-              name="Buscar prácticas"
-              parent="menu_practica"
-              sequence="10"
-              action="view_practica_search"/>-->
 
 </odoo>

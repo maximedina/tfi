@@ -111,8 +111,8 @@
 
         <menuitem id="menu_personal_root"
               name="Personal"
-              parent="menu_usuario_root"
+              parent="menu_practica_root"
               action="action_veterinaria_personal"
-              sequence="10"/>
+              sequence="30"/>
 
 </odoo>

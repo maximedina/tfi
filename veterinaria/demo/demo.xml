@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
+        <!-- Clientes -->
+<!--        <record id="1" model="res.partner">
+                <field name="dni">54363635</field>
+                <field name="name">Maximiliano Medina</field>
+                <field name="telefono">065412345</field>
+                <field name="telefono">maximedina@gmail.com</field>
+                <field name="genero">masculino</field>
+                <field name="fecha_nacimiento">1978-01-16</field>
+                <field name="foto" type="base64" file="/home/osboxes/PycharmProjects/odoo/src/addons/veterinaria/static/src/img/index.jpg"/>
+          </record>-->
         <!-- Pacientes -->
           <record id="1" model="veterinaria.paciente">
                 <field name="name">Juana</field>
-<!--                <field name="numero">MV00001</field>-->
-                <field name="responsable">59</field>
+                <field name="responsable">1</field>
                 <field name="microchip">111111</field>
                 <field name="especie">1</field>
                 <field name="raza">1</field>
@@ -36,11 +45,11 @@
           <record id="2" model="veterinaria.item">
                 <field name="codigo">2</field>
                 <field name="name">Consulta en consultorio</field>
-                <field name="descripcion"></field>
                 <field name="precio_costo">800</field>
                 <field name="porcentaje_precio">30</field>
                 <field name="iva">21</field>
-                <field name="proveedor">58</field>
+                <field name="duracion">15</field>
+                <field name="proveedor">16</field>
                 <field name="grupo">1</field>
                 <field name="rubro">1</field>
                 <field name="categoria">3</field>
@@ -52,7 +61,8 @@
                 <field name="precio_costo">800</field>
                 <field name="porcentaje_precio">30</field>
                 <field name="iva">21</field>
-                <field name="proveedor">58</field>
+                <field name="duracion">30</field>
+                <field name="proveedor">16</field>
                 <field name="grupo">4</field>
                 <field name="rubro">13</field>
                 <field name="categoria">20</field>

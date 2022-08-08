@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models
+from datetime import datetime, timedelta
 
 
 class Categoria(models.Model):
@@ -21,3 +22,9 @@ class Categoria(models.Model):
     @api.depends('paciente', 'practica', 'personal', 'inicio')
     def _armarNombre(self):
         self[0]['name'] = str(self[0]['paciente'].name)+ '-' + str(self[0]['practica'].name) + '-' + str(self[0]['personal'].name) + '-' + str(self[0]['inicio'])
+
+    @api.onchange('inicio','practica')
+    def onchange_inicio(self):
+        if self.practica:
+            if self.inicio:
+                self.fin = self.inicio + timedelta(minutes=self.practica.duracion)

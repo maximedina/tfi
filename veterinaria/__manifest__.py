@@ -10,11 +10,8 @@
     'website': 'https://www.medvet.com',
     'license': 'AGPL-3',
     'depends': [
-        # 'sale',
+        'base',
         'mail',
-        'contacts'
-        # 'website_slides',
-        # 'hr',
     ],
     'data': [
         'data/paciente.especie.csv',
@@ -30,6 +27,7 @@
         'views/practica.xml',
         'views/item.xml',
         'views/turno.xml',
+        'views/cliente.xml',
         'views/personal.xml',
         'views/especie.xml',
         'views/raza.xml',
@@ -37,10 +35,9 @@
         'views/rubro.xml',
         'views/categoria.xml',
         'views/fabricante.xml',
-        # 'views/cliente.xml',
-        'reports/report.xml',
         'reports/historia_clinica_template.xml',
-        'reports/turno_agenda_semanal_template.xml',
+        # 'reports/turno_agenda_semanal_template.xml',
+        'reports/report.xml',
         'data/turno_automation.xml'
     ],
     'demo': [

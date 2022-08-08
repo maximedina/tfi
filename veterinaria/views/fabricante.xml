@@ -27,7 +27,6 @@
 
                 <sheet>
                     <h1>Fabricante</h1>
-                    <!-- <h4> otro título</h4> -->
                     <group>
                         <group>
                             <field name="name"/>
