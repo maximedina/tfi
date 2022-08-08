@@ -4,9 +4,12 @@
         <field name="name">Todo Task form – User extension</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
+
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="replace">
+                <group>
                     <field name="pacientes" />
+                </group>
             </xpath>
         </field>
     </record>
