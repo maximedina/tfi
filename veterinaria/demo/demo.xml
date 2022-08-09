@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <!-- Clientes -->
-<!--        <record id="1" model="res.partner">
-                <field name="dni">54363635</field>
-                <field name="name">Maximiliano Medina</field>
-                <field name="telefono">065412345</field>
-                <field name="telefono">maximedina@gmail.com</field>
-                <field name="genero">masculino</field>
-                <field name="fecha_nacimiento">1978-01-16</field>
-                <field name="foto" type="base64" file="/home/osboxes/PycharmProjects/odoo/src/addons/veterinaria/static/src/img/index.jpg"/>
-          </record>-->
         <!-- Pacientes -->
           <record id="1" model="veterinaria.paciente">
                 <field name="name">Juana</field>
@@ -23,6 +13,42 @@
                 <field name="sexo">hembra</field>
                 <field name="fecha_nacimiento">2020-05-12</field>
                 <field name="imagen" type="base64" file="/home/osboxes/PycharmProjects/odoo/src/addons/veterinaria/static/src/img/Juana.PNG"/>
+          </record>
+          <record id="2" model="veterinaria.paciente">
+                <field name="name">Toto</field>
+                <field name="responsable">1</field>
+                <field name="microchip">33333</field>
+                <field name="especie">1</field>
+                <field name="raza">9</field>
+                <field name="color">Gris</field>
+                <field name="peso">10</field>
+                <field name="sexo">macho</field>
+                <field name="fecha_nacimiento">2018-06-18</field>
+                <field name="imagen" type="base64" file="/home/osboxes/PycharmProjects/odoo/src/addons/veterinaria/static/src/img/My_pug.jpg"/>
+          </record>
+          <record id="3" model="veterinaria.paciente">
+                <field name="name">Pili</field>
+                <field name="responsable">1</field>
+                <field name="microchip">22222</field>
+                <field name="especie">2</field>
+                <field name="raza">10</field>
+                <field name="color">Gris</field>
+                <field name="peso">3</field>
+                <field name="sexo">hembra</field>
+                <field name="fecha_nacimiento">2019-04-12</field>
+                <field name="imagen" type="base64" file="/home/osboxes/PycharmProjects/odoo/src/addons/veterinaria/static/src/img/mestizo gato.jpg"/>
+          </record>
+          <record id="4" model="veterinaria.paciente">
+                <field name="name">Tais</field>
+                <field name="responsable">1</field>
+                <field name="microchip">4444</field>
+                <field name="especie">2</field>
+                <field name="raza">11</field>
+                <field name="color">Marron</field>
+                <field name="peso">3.5</field>
+                <field name="sexo">hembra</field>
+                <field name="fecha_nacimiento">2017-03-12</field>
+                <field name="imagen" type="base64" file="/home/osboxes/PycharmProjects/odoo/src/addons/veterinaria/static/src/img/Siames.jpg"/>
           </record>
         <!-- Items -->
           <record id="1" model="veterinaria.item">
@@ -44,6 +70,22 @@
           </record>
           <record id="2" model="veterinaria.item">
                 <field name="codigo">2</field>
+                <field name="name">Nobivac Rabies</field>
+                <field name="descripcion">Vacuna inactivada contra la rabia en perros, gatos y hurones.</field>
+                <field name="precio_costo">500</field>
+                <field name="porcentaje_precio">30</field>
+                <field name="iva">21</field>
+                <field name="presentacion">1 ampolla</field>
+                <field name="stock">10</field>
+                <field name="stock_minimo">2</field>
+                <field name="proveedor">47</field>
+                <field name="grupo">1</field>
+                <field name="rubro">2</field>
+                <field name="categoria">30</field>
+                <field name="fabricante">1</field>
+          </record>
+          <record id="3" model="veterinaria.item">
+                <field name="codigo">3</field>
                 <field name="name">Consulta en consultorio</field>
                 <field name="precio_costo">800</field>
                 <field name="porcentaje_precio">30</field>
@@ -54,8 +96,20 @@
                 <field name="rubro">1</field>
                 <field name="categoria">3</field>
           </record>
-          <record id="3" model="veterinaria.item">
-                <field name="codigo">3</field>
+          <record id="4" model="veterinaria.item">
+                <field name="codigo">4</field>
+                <field name="name">Vacunacion en consultorio</field>
+                <field name="precio_costo">500</field>
+                <field name="porcentaje_precio">30</field>
+                <field name="iva">21</field>
+                <field name="duracion">15</field>
+                <field name="proveedor">16</field>
+                <field name="grupo">1</field>
+                <field name="rubro">1</field>
+                <field name="categoria">1</field>
+          </record>
+          <record id="5" model="veterinaria.item">
+                <field name="codigo">5</field>
                 <field name="name">Corte</field>
                 <field name="descripcion">Corte de pelo</field>
                 <field name="precio_costo">800</field>

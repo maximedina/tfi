@@ -18,15 +18,28 @@
         <field name="name">veterinaria.personal.kanban</field>
         <field name="model">veterinaria.personal</field>
         <field name="arch" type="xml">
-            <kanban sample="1">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="foto"/>
+                <field name="matricula"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_global_click">
-                            <div class="o_kanban_image_fill_left">
-                                <field name="foto" widget="image" class="oe_avatar"/>
+                        <div class="oe_kanban_global_click o_res_partner_kanban">
+                            <div class="o_kanban_image">
+                                <t>
+                                    <img t-att-src="kanban_image('veterinaria.personal', 'foto', record.id.raw_value)"
+                                         class="o_kanban_image oe_kanban_avatar_smallbox"/>
+                                </t>
                             </div>
                             <div class="oe_kanban_details">
                                 <ul>
+                                    <li>
+                                        <h2>
+                                            <field name="name"/>
+                                        </h2>
+                                    </li>
                                     <li>
                                         Dni: <field name="dni"/>
                                     </li>

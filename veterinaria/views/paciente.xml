@@ -9,9 +9,9 @@
         <field name="state">code</field>
         <field name="code">
             if record:
-                action_values = env.ref('veterinaria.action_registrar_practica').sudo().read()[0]
-                action_values.update({'context': env.context})
-                action = action_values
+            action_values = env.ref('veterinaria.action_registrar_practica').sudo().read()[0]
+            action_values.update({'context': env.context})
+            action = action_values
         </field>
     </record>
 
@@ -51,46 +51,59 @@
         </field>
     </record>
 
-        <record id="view_paciente_kanban" model="ir.ui.view">
+    <record id="view_paciente_kanban" model="ir.ui.view">
         <field name="name">veterinaria.paciente.kanban</field>
         <field name="model">veterinaria.paciente</field>
         <field name="arch" type="xml">
-            <kanban sample="1">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="imagen"/>
+                <field name="raza"/>
+                <field name="responsable"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div t-attf-class="oe_kanban_global_click">
-                            <div class="o_kanban_image_fill_left">
-                                <field name="imagen" widget="image" class="oe_avatar"/>
+                        <div class="oe_kanban_global_click o_res_partner_kanban">
+                            <div class="o_kanban_image">
+                                <t>
+                                    <img t-att-src="kanban_image('veterinaria.paciente', 'imagen', record.id.raw_value)"
+                                         class="o_kanban_image oe_kanban_avatar_smallbox"/>
+                                </t>
                             </div>
-
                             <div class="oe_kanban_details">
                                 <ul>
                                     <li>
-                                        Número: <field name="numero"/>
+                                        <h2>
+                                            <field name="name"/>
+                                        </h2>
                                     </li>
                                     <li>
-                                        Nombre: <field name="name"/>
+                                        Número:
+                                        <field name="numero"/>
                                     </li>
                                     <li>
-                                        Especie: <field name="especie"/>
+                                        Especie:
+                                        <field name="especie"/>
                                     </li>
                                     <li>
-                                        Raza: <field name="raza"/>
+                                        Raza:
+                                        <field name="raza"/>
                                     </li>
                                     <li>
-                                        Sexo: <field name="sexo"/>
+                                        Sexo:
+                                        <field name="sexo"/>
                                     </li>
                                     <li>
-                                        Peso: <field name="peso"/>
+                                        Peso:
+                                        <field name="peso"/>
                                     </li>
                                     <li>
-                                        Fec. nac.: <field name="fecha_nacimiento"/>
+                                        Fec. nac.:
+                                        <field name="fecha_nacimiento"/>
                                     </li>
                                     <li>
-                                        Responsable: <field name="responsable"/>
-                                    </li>
-                                    <li>
-                                        Activo: <field name="activo"/>
+                                        Responsable:
+                                        <field name="responsable"/>
                                     </li>
                                 </ul>
                             </div>
@@ -152,26 +165,26 @@
         </field>
     </record>
 
-        <menuitem id="menu_veterinaria_root"
+    <menuitem id="menu_veterinaria_root"
               name="MedVet"
               sequence="10"/>
 
-        <menuitem id="menu_practica_root"
+    <menuitem id="menu_practica_root"
               name="Prácticas"
               parent="menu_veterinaria_root"
               sequence="10"/>
 
-        <menuitem id="menu_paciente_root"
+    <menuitem id="menu_paciente_root"
               name="Pacientes"
               parent="menu_veterinaria_root"
               sequence="20"/>
 
-        <menuitem id="menu_item_root"
+    <menuitem id="menu_item_root"
               name="Items"
               parent="menu_veterinaria_root"
               sequence="30"/>
 
-        <menuitem id="menu_paciente"
+    <menuitem id="menu_paciente"
               name="Pacientes"
               parent="menu_paciente_root"
               action="action_veterinaria_paciente"

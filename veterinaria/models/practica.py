@@ -71,43 +71,72 @@ class PracticaItems(models.Model):
 
     item = fields.Many2one('veterinaria.item', string="Item")
     precio_venta = fields.Float(string="Precio", related='item.precio_venta', readonly=True, store=True)
-    cantidad = fields.Float(string="Cantidad", default=1)
+    cantidad = fields.Float(string="Cantidad", default=0)
     descuento = fields.Float(string="Descuento")
     subtotal = fields.Float(string="Total", readonly=True, compute='_subtotal', store=True)
-    stock = fields.Float(string="Stock", store=True, related='item.stock')
+    stock_minimo = fields.Float(string="Stock minimo", store=True, related='item.stock_minimo')
+    stock = fields.Float(string="Stock", store=True, readonly=True, related='item.stock')
+    stock_auxiliar = stock
     practica_id = fields.Many2one('veterinaria.practica', string="Práctica")
 
     @api.depends('precio_venta', 'cantidad', 'descuento')
     def _subtotal(self):
         for e in self:
             e.subtotal = e.precio_venta * e.cantidad * (1 - e.descuento / 100)
-            # self[0]['subtotal'] = self[0]['precio_venta'] * self[0]['cantidad'] * (1 - self[0]['descuento'] / 100)
 
-    # @api.depends('cantidad')
+    @api.onchange('cantidad')
+    def _stock(self):
+        for e in self:
+            if e.stock_minimo > 0:
+                if e.stock_auxiliar - e.cantidad < 0:
+                    mensaje = f'El stock no es suficiente para cubrir la cantidad solicitada.'
+                    e.cantidad = e.stock
+                    e.stock = 0
+                    view = self.env.ref('sh_message.sh_message_wizard')
+                    view_id = view and view.id or False
+                    context = dict(self._context or {})
+                    context['message'] = mensaje
+                    return {
+                        'name': 'Aviso',
+                        'type': 'ir.actions.act_window',
+                        'view_type': 'form',
+                        'view_mode': 'form',
+                        'res_model': 'sh.message.wizard',
+                        'views': [(view.id, 'form')],
+                        'views_id': view.id,
+                        'target': 'new',
+                        'context': context,
+                    }
+                else:
+                    if e.stock_auxiliar - e.cantidad <= e.stock_minimo:
+                        mensaje = f'Se alcanzo el stock minimo.'
+                        view = self.env.ref('sh_message.sh_message_wizard')
+                        view_id = view and view.id or False
+                        context = dict(self._context or {})
+                        context['message'] = mensaje
+                        return {
+                            'name': 'Aviso',
+                            'type': 'ir.actions.act_window',
+                            'view_type': 'form',
+                            'view_mode': 'form',
+                            'res_model': 'sh.message.wizard',
+                            'views': [(view.id, 'form')],
+                            'views_id': view.id,
+                            'target': 'new',
+                            'context': context,
+                        }
+                    e.stock = e.stock_auxiliar - e.cantidad
+                    e.item.stock = e.stock_auxiliar - e.cantidad
+
+
+    # @api.onchange('cantidad')
     # def _stock(self):
-    #     if self[0]['item.stock_minimo'] > 0:
-    #         if self[0]['item.stock'] - self[0]['cantidad'] <= 0:
-    #             mensaje = f'El stock no es suficiente para cubrir la cantidad solicitada.'
-    #             self[0]['cantidad'] = self[0]['item.stock']
-    #             self[0]['item.stock'] = 0
-    #             view = self.env.ref('sh_message.sh_message_wizard')
-    #             view_id = view and view.id or False
-    #             context = dict(self._context or {})
-    #             context['message'] = mensaje
-    #             return {
-    #                 'name': 'Aviso',
-    #                 'type': 'ir.actions.act_window',
-    #                 'view_type': 'form',
-    #                 'view_mode': 'form',
-    #                 'res_model': 'sh.message.wizard',
-    #                 'views': [(view.id, 'form')],
-    #                 'views_id': view.id,
-    #                 'target': 'new',
-    #                 'context': context,
-    #             }
-    #         else:
-    #             if self[0]['item.stock'] - self[0]['cantidad'] <= self[0]['item.stock_minimo']:
-    #                 mensaje = f'Se alcanzo el stock minimo.'
+    #     for e in self:
+    #         if e.stock_minimo > 0:
+    #             if e.stock_auxiliar - e.cantidad < 0:
+    #                 mensaje = f'El stock no es suficiente para cubrir la cantidad solicitada.'
+    #                 self[0]['cantidad'] = self[0]['stock']
+    #                 self[0]['stock'] = 0
     #                 view = self.env.ref('sh_message.sh_message_wizard')
     #                 view_id = view and view.id or False
     #                 context = dict(self._context or {})
@@ -123,4 +152,23 @@ class PracticaItems(models.Model):
     #                     'target': 'new',
     #                     'context': context,
     #                 }
-    #             self[0]['item.stock'] = self[0]['item.stock'] - self[0]['cantidad']
+    #             else:
+    #                 if e.stock_auxiliar - e.cantidad <= e.stock_minimo:
+    #                     mensaje = f'Se alcanzo el stock minimo.'
+    #                     view = self.env.ref('sh_message.sh_message_wizard')
+    #                     view_id = view and view.id or False
+    #                     context = dict(self._context or {})
+    #                     context['message'] = mensaje
+    #                     return {
+    #                         'name': 'Aviso',
+    #                         'type': 'ir.actions.act_window',
+    #                         'view_type': 'form',
+    #                         'view_mode': 'form',
+    #                         'res_model': 'sh.message.wizard',
+    #                         'views': [(view.id, 'form')],
+    #                         'views_id': view.id,
+    #                         'target': 'new',
+    #                         'context': context,
+    #                     }
+    #                 e.stock = e.stock_auxiliar - e.cantidad
+    #                 e.item.stock = e.stock_auxiliar - e.cantidad

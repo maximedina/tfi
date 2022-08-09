@@ -35,9 +35,7 @@
         'views/rubro.xml',
         'views/categoria.xml',
         'views/fabricante.xml',
-        'reports/historia_clinica_template.xml',
-        # 'reports/turno_agenda_semanal_template.xml',
-        'reports/report.xml',
+        'reports/reporte_historia_clinica.xml',
         'data/turno_automation.xml'
     ],
     'demo': [
