@@ -4,7 +4,7 @@
         <!-- Pacientes -->
           <record id="1" model="veterinaria.paciente">
                 <field name="name">Juana</field>
-                <field name="responsable">1</field>
+                <field name="responsable">56</field>
                 <field name="microchip">111111</field>
                 <field name="especie">1</field>
                 <field name="raza">1</field>
@@ -16,7 +16,7 @@
           </record>
           <record id="2" model="veterinaria.paciente">
                 <field name="name">Toto</field>
-                <field name="responsable">1</field>
+                <field name="responsable">57</field>
                 <field name="microchip">33333</field>
                 <field name="especie">1</field>
                 <field name="raza">9</field>
@@ -28,7 +28,7 @@
           </record>
           <record id="3" model="veterinaria.paciente">
                 <field name="name">Pili</field>
-                <field name="responsable">1</field>
+                <field name="responsable">57</field>
                 <field name="microchip">22222</field>
                 <field name="especie">2</field>
                 <field name="raza">10</field>
@@ -40,7 +40,7 @@
           </record>
           <record id="4" model="veterinaria.paciente">
                 <field name="name">Tais</field>
-                <field name="responsable">1</field>
+                <field name="responsable">56</field>
                 <field name="microchip">4444</field>
                 <field name="especie">2</field>
                 <field name="raza">11</field>
